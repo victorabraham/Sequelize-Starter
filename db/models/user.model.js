@@ -1,5 +1,14 @@
 const Sequelize = require('sequelize');
 const User = sequelize.define('user', {
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    get() {
+      const title = this.getDataValue('title');
+      // 'this' allows you to access attributes of the instance
+      return this.getDataValue('firstName') + ' ' + this.getDataValue('lastName');
+    },
+  },
   firstName: {
     type: Sequelize.STRING,
     allowNull: false
@@ -12,7 +21,8 @@ const User = sequelize.define('user', {
     type: Sequelize.STRING,
     unique: true,
     allowNull: false,
-    primaryKey: true
+    primaryKey: true,
+    validate: { isEmail: true }
   },
 });
 

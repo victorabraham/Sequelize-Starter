@@ -8,6 +8,7 @@ const Sequelize = require('sequelize');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var todos = require('./routes/todos');
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/todos', todos);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -46,6 +48,7 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
+/*
 const sequelize = new Sequelize('database', '', '', {
   // sqlite! now!
   dialect: 'sqlite',
@@ -86,5 +89,6 @@ sequelize
   .catch(err => {
     console.error('Unable to connect to the database:', err);
   });
+  */
 
 module.exports = app;
