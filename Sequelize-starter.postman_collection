@@ -1,0 +1,144 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Sequelize-starter",
+		"_postman_id": "9afa2b06-e2d4-4737-bcf0-ad05a1aa3641",
+		"description": "API interactions for Sequelize-starter API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Todos",
+			"request": {
+				"url": "http://localhost:3000/api/todos",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "To get List of todos"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Todo",
+			"request": {
+				"url": "http://localhost:3000/api/todos",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "test todo",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "To save a Todo"
+			},
+			"response": []
+		},
+		{
+			"name": "Create TodoItem",
+			"request": {
+				"url": "http://localhost:3000/api/todos/1/items",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "content",
+							"value": "entry under todo 1",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "To create a TodoItem"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Single Todos",
+			"request": {
+				"url": "http://localhost:3000/api/todos/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "To get single Todo by ID"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Single Todos",
+			"request": {
+				"url": "http://localhost:3000/api/todos/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"title\": \"test todo update\",\n    \"createdAt\": \"2018-02-28T18:20:25.665Z\",\n    \"updatedAt\": \"2018-02-28T18:20:25.665Z\",\n    \"todoItems\": [\n        {\n            \"id\": 1,\n            \"content\": \"entry under todo 1\",\n            \"complete\": false,\n            \"createdAt\": \"2018-02-28T18:21:41.390Z\",\n            \"updatedAt\": \"2018-02-28T18:21:41.390Z\",\n            \"todoId\": 1\n        }\n    ]\n}"
+				},
+				"description": "To update single Todo by ID"
+			},
+			"response": []
+		},
+		{
+			"name": "Update TodoItem",
+			"request": {
+				"url": "http://localhost:3000/api/todos/1/items/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"complete\": true,\n    \"id\": 2,\n    \"content\": \"second entry under todo 1 updated\",\n    \"todoId\": \"1\",\n    \"updatedAt\": \"2018-02-28T19:22:51.507Z\",\n    \"createdAt\": \"2018-02-28T19:22:51.507Z\"\n}"
+				},
+				"description": "To update a TodoItem"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete TodoItem",
+			"request": {
+				"url": "http://localhost:3000/api/todos/1/items/1",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "To delete a TodoItem"
+			},
+			"response": []
+		}
+	]
+}
